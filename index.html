@@ -3,16 +3,34 @@
     <head>
         <title>Vacuum Cleaning Problem</title>
         <script src="index.js"></script>
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
-
+        <div id="main">
         <h1> Auto Vacuum Cleaner</h1>
+        <p>To get started uplaod a text file with the following:</p>
+        <ul>
+            <li> The first line holds the room dimensions (X Y), separated by a single space (all coordinates will be presented in this format)
+            </li>
+            <li> 
+                The second line holds the hoover position
+            </li>
+            <li>
+                Subsequent lines contain the zero or more positions of patches of dirt (one per line)
+            </li>
+            <li>
+                The next line then always contains the driving instructions (at least one)
+            </li>
+        </ul>
 
         <h2> Please input file below:</h2>
+        <p id="errorMessage"></p>
         <input type="file" id="info" name="info" accept=".txt"/>
+        <p id="start"></p>
+        <p id="end"></p>
+        <p id="dirt"></p>
+    </div>
 
     </body>
-
-
 
 </html>
