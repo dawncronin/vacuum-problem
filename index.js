@@ -1,4 +1,3 @@
-
 //Ensure HTML document is loaded before starting the script
 document.addEventListener("DOMContentLoaded", () => {
     // Wait for a file to be uploaded before calculating vacuum path
@@ -6,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     inputField.addEventListener("change", (event) => readFile(event));
 });
 
-// Call on readFile after we recieve a .txt file from the user
+//Call on readFile after we recieve a .txt file from the user
 function readFile(event) {
     //file will be the uploaded file from the user
     //check to make sure that the file exists
@@ -29,8 +28,8 @@ function readFile(event) {
         fileReader.onerror = () => {
             console.log("unable to read file");
         };
-    }
-}
+    };
+};
 
 function calculatePath(fileText) {
     let xRoom = parseInt(fileText[0].split(" ")[0]);
@@ -53,6 +52,8 @@ function calculatePath(fileText) {
 
     let dirtCount = 0;
 
+    //following instructions, and cleaning up dirt
+    //prevent vacuum from moving outside of room with bounds
     for(let i = 0; i < directions.length; i++) {
         if (directions[i] ==="N" && yVacuum < yRoom-1) {
             yVacuum += 1;
@@ -73,11 +74,8 @@ function calculatePath(fileText) {
         };
     };
     console.log(`${xVacuum} ${yVacuum}\n${dirtCount}`); //solution
-
     document.getElementById("end").innerText = `Ending Position: ${xVacuum}, ${yVacuum}`
     document.getElementById("dirt").innerText = `Dirt Cleaned: ${dirtCount}`;
-
-
 };
 
 //file upload error message
